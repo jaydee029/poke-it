@@ -13,7 +13,7 @@ func main() {
 
 	for {
 
-		fmt.Println("Poke-it >")
+		fmt.Printf("Poke-it >")
 		read.Scan()
 
 		input := cleanText(read.Text())
@@ -27,12 +27,14 @@ func main() {
 		value, exist := commandIndex()[command]
 
 		if !exist {
-			fmt.Println(commandIndex()["help"])
+			fmt.Println("The command doesnt exist")
+			fmt.Println("")
+			fmt.Println(commandHelp())
 			continue
 		}
 
-		fmt.Printf("%s", value.description)
-		fmt.Println("\n")
+		value.callback()
+		fmt.Println("")
 	}
 
 }
@@ -62,12 +64,4 @@ func commandIndex() map[string]commands {
 			callback:    commandExit,
 		},
 	}
-}
-
-func commandExit() error {
-	return nil
-}
-
-func commandHelp() error {
-	return nil
 }
