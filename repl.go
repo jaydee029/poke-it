@@ -58,6 +58,11 @@ func commandIndex() map[string]commands {
 			description: "displays cli commands",
 			callback:    commandHelp,
 		},
+		"map": {
+			method:      "map",
+			description: "displays Location Areas",
+			callback:    commandMap,
+		},
 		"exit": {
 			method:      "exit",
 			description: "exits cli",
