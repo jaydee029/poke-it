@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-func commandHelp() error {
+func commandHelp(cf *config) error {
 	fmt.Println("Welcome to poke-it")
 	fmt.Println("The commands availabe are-")
 	fmt.Println("")

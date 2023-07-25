@@ -7,7 +7,7 @@ import (
 	"strings"
 )
 
-func startrepl() {
+func startrepl(cf *config) {
 
 	read := bufio.NewScanner(os.Stdin)
 
@@ -29,11 +29,11 @@ func startrepl() {
 		if !exist {
 			fmt.Println("The command doesnt exist")
 			fmt.Println("")
-			fmt.Println(commandHelp())
+			fmt.Println(commandHelp(cf))
 			continue
 		}
 
-		value.callback()
+		value.callback(cf)
 		fmt.Println("")
 	}
 
@@ -48,7 +48,7 @@ func cleanText(text string) []string {
 type commands struct {
 	method      string
 	description string
-	callback    func() error
+	callback    func(*config) error
 }
 
 func commandIndex() map[string]commands {
@@ -62,6 +62,11 @@ func commandIndex() map[string]commands {
 			method:      "map",
 			description: "displays Location Areas",
 			callback:    commandMap,
+		},
+		"mapb": {
+			method:      "mapb",
+			description: "displays previous Location Areas",
+			callback:    commandMapb,
 		},
 		"exit": {
 			method:      "exit",
