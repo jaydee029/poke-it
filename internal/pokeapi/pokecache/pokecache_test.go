@@ -1,9 +1,12 @@
 package pokecache
 
-import "testing"
+import (
+	"testing"
+	"time"
+)
 
 func TestAdd_Get(t *testing.T) {
-	c := NewCache()
+	c := NewCache(time.Millisecond * 10)
 	cases := []struct {
 		inp string
 		out []byte
@@ -33,5 +36,20 @@ func TestAdd_Get(t *testing.T) {
 			t.Errorf("value doesnt match")
 			continue
 		}
+	}
+}
+
+func TestReapa(t *testing.T) {
+	interval := 10 * time.Millisecond
+	c := NewCache(interval)
+
+	key := "key1"
+	c.Add(key, []byte("hello"))
+	time.Sleep(interval + time.Millisecond)
+
+	_, ok := c.Get(key)
+	if ok {
+		t.Errorf("The record isnt removed")
+
 	}
 }
