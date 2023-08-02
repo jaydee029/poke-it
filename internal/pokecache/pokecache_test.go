@@ -39,7 +39,7 @@ func TestAdd_Get(t *testing.T) {
 	}
 }
 
-func TestReapa(t *testing.T) {
+func TestReap(t *testing.T) {
 	interval := 10 * time.Millisecond
 	c := NewCache(interval)
 

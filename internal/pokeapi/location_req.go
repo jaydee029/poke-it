@@ -18,6 +18,21 @@ func (c *Client) LocationArearesponse(nextURL *string, prevURL *string) (Locatio
 	if prevURL != nil {
 		full_url = *prevURL
 	}
+
+	//checking the cache memeory for the req endpoint
+	cacheres, ok := c.cache.Get(full_url)
+	if ok {
+		fmt.Println("cache hit!")
+		LocationAreaValues := LocationAreas{}
+		err := json.Unmarshal(cacheres, &LocationAreaValues)
+		if err != nil {
+			return LocationAreas{}, err
+		}
+
+		return LocationAreaValues, nil
+
+	}
+
 	req, err := http.NewRequest("GET", full_url, nil)
 
 	if err != nil {
@@ -46,7 +61,7 @@ func (c *Client) LocationArearesponse(nextURL *string, prevURL *string) (Locatio
 	if err != nil {
 		return LocationAreas{}, err
 	}
-
+	c.cache.Add(full_url, []byte(data))
 	return LocationAreaValues, nil
 
 }
