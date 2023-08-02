@@ -5,7 +5,7 @@ import (
 	"log"
 )
 
-func commandMap(cf *config) error {
+func commandMap(cf *config, arg ...string) error {
 
 	res, err := cf.pokeapiclient.LocationArearesponse(cf.nextlocationURL, nil)
 	if err != nil {

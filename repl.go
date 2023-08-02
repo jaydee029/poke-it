@@ -24,6 +24,11 @@ func startrepl(cf *config) {
 
 		command := input[0]
 
+		args := []string{}
+		if len(input) > 1 {
+			args = input[1:]
+		}
+
 		value, exist := commandIndex()[command]
 
 		if !exist {
@@ -33,7 +38,7 @@ func startrepl(cf *config) {
 			continue
 		}
 
-		value.callback(cf)
+		value.callback(cf, args...)
 		fmt.Println("")
 	}
 
@@ -48,7 +53,7 @@ func cleanText(text string) []string {
 type commands struct {
 	method      string
 	description string
-	callback    func(*config) error
+	callback    func(*config, ...string) error
 }
 
 func commandIndex() map[string]commands {
@@ -67,6 +72,11 @@ func commandIndex() map[string]commands {
 			method:      "mapb",
 			description: "displays previous Location Areas",
 			callback:    commandMapb,
+		},
+		"explore": {
+			method:      "explore",
+			description: "displays pokemons in the Location Area",
+			callback:    commandExplore,
 		},
 		"exit": {
 			method:      "exit",
