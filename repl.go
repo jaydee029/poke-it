@@ -73,6 +73,16 @@ func commandIndex() map[string]commands {
 			description: "displays previous Location Areas",
 			callback:    commandMapb,
 		},
+		"catch": {
+			method:      "catch",
+			description: "Catches the pokemon present in the area",
+			callback:    commandCatch,
+		},
+		"inspect": {
+			method:      "inspect",
+			description: "displays info of previously caught pokemon",
+			callback:    commandMapb,
+		},
 		"explore": {
 			method:      "explore",
 			description: "displays pokemons in the Location Area",
