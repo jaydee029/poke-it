@@ -81,7 +81,7 @@ func commandIndex() map[string]commands {
 		"inspect": {
 			method:      "inspect",
 			description: "displays info of previously caught pokemon",
-			callback:    commandMapb,
+			callback:    commandInspect,
 		},
 		"explore": {
 			method:      "explore",

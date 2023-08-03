@@ -8,10 +8,10 @@ import (
 
 func commandCatch(cf *config, arg ...string) error {
 	if len(arg) == 0 {
-		return errors.New("No location area passed")
+		return errors.New("No Pokemon passed")
 	}
 	if len(arg) > 1 {
-		return errors.New("Invalid location area")
+		return errors.New("Invalid Pokemon passed")
 	}
 	poke := arg[0]
 	res, err := cf.pokeapiclient.Pokemonreq(poke)
