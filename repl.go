@@ -88,6 +88,11 @@ func commandIndex() map[string]commands {
 			description: "displays pokemons in the Location Area",
 			callback:    commandExplore,
 		},
+		"pokedex": {
+			method:      "pokedex",
+			description: "displays all the pokemons caught",
+			callback:    commandPokedex,
+		},
 		"exit": {
 			method:      "exit",
 			description: "exits cli",
