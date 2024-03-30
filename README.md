@@ -2,6 +2,9 @@
 
 POKE-IT is a REPL command line game, it fetches directly from the PokeApi in real time, the users can traverse various worlds , capture pokemons if there powers permit, lookup statistics for captured pokemons, etc. it stores the data in a real time custom cache implemented using Sync mutexes increasing the efficiency of the program. 
 
+## Usage
+
+
 ## Build It Locally
 
 It requires golang to be installed and available on the command line client.
@@ -13,9 +16,16 @@ cd Poke-it
 ```
 
 Build the executable and run the executable to start the REPL backend
+For unix based systems/WSL
 ```
 go build -o pokeit
 ./pokeit
+```
+
+For windows cmd
+```
+go build
+poke-it.exe
 ```
 
 For the program to be globally available add the executable to your system path, and call it from anywhere in the system.
