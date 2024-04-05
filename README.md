@@ -4,6 +4,14 @@ POKE-IT is a REPL command line game, it fetches directly from the PokeApi in rea
 
 ## Usage
 
+- `poke-it help`: "displays cli commands"
+- `poke-it map`: "displays Location Areas"
+- `poke-it mapb`: "displays previous Location Areas"
+- `poke-it catch`: "Catches the pokemon present in the area"
+- `poke-it inspect`: "displays info of previously caught pokemon"
+- `poke-it explore`: "displays pokemons in the Location Area"
+- `poke-it pokedex`: "displays all the pokemons caught"
+- `poke-it exit`: "exits cli"
 
 ## Build It Locally
 
