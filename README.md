@@ -1,6 +1,6 @@
 # poke-it
 
-POKE-IT is a REPL command line game, it fetches directly from the PokeApi in real time, the users can traverse various worlds , capture pokemons if there powers permit, lookup statistics for captured pokemons, etc. it stores the data in a real time custom cache implemented using Sync mutexes increasing the efficiency of the program. 
+POKE-IT is a REPL command line game, it fetches directly from the PokeApi in real time, the users can traverse various worlds , capture pokemons if there powers permit, lookup statistics for captured pokemons, etc. `it stores the data in a real time custom cache implemented using Sync mutexes increasing the efficiency of the program`. 
 
 ## Usage
 
