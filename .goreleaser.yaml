@@ -1,0 +1,26 @@
+# .goreleaser.yaml
+project_name: test-sbom
+builds:
+  - id: test-app
+    main: ./main.go
+    binary: poke-it
+    goos:
+      - linux
+    goarch:
+      - amd64
+      - arm64
+    env:
+      - CGO_ENABLED=0
+
+release:
+  draft: false
+  prerelease: auto
+  mode: keep-existing
+  #skip_upload: true  # Keep this as true
+
+# Simple SBOM configuration
+sboms:
+  - id: source
+    artifacts: source
+  - id: archive 
+    artifacts: archive
